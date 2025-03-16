@@ -12,8 +12,8 @@ This project implements a RESTful API using FastAPI with JWT authentication and 
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://www.github.com/aman-dayal/
-   cd FASTAPI_JWT_RBAC
+   git clone https://github.com/Aman-Dayal/FASTAPI-JWT-RBAC-.git
+   cd FASTAPI-JWT-RBAC
    ```
 
 2. Create a virtual environment:
@@ -35,7 +35,7 @@ This project implements a RESTful API using FastAPI with JWT authentication and 
 5. Add environment variables to the .env file:
    SECRET_KEY : for jwt authentication
    API_KEY : for api key authentication
-   
+
 6. Run the application:
    ```bash
    uvicorn main:app --reload
