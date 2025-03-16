@@ -12,8 +12,8 @@ This project implements a RESTful API using FastAPI with JWT authentication and 
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone https://www.github.com/aman-dayal/
+   cd FASTAPI_JWT_RBAC
    ```
 
 2. Create a virtual environment:
@@ -27,13 +27,16 @@ This project implements a RESTful API using FastAPI with JWT authentication and 
    pip install -r requirements.txt
    ```
 
-4. Set up the database (update the database URL in `main.py`):
+4. Set up the database (update the database URL in env ):
    ```bash
    # Example for PostgreSQL
    DATABASE_URL="postgresql://user:password@localhost/dbname"
    ```
-
-5. Run the application:
+5. Add environment variables to the .env file:
+   SECRET_KEY : for jwt authentication
+   API_KEY : for api key authentication
+   
+6. Run the application:
    ```bash
    uvicorn main:app --reload
    ```
@@ -55,56 +58,12 @@ The API documentation can be accessed at:
 - `PUT /projects/{project_id}`: Update an existing project
 - `DELETE /projects/{project_id}`: Delete a project
 
-## License
-This project is licensed under the MIT License.
-
-
-## Overview
-This project implements a RESTful API using FastAPI with JWT authentication and Role-Based Access Control (RBAC). The API manages user registration, login, and CRUD operations for resources.
-
 ## Tech Stack
 - FastAPI
 - PostgreSQL
 - SQLModel
 - bcrypt
 - PyJWT
-
-## Installation Steps
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd <repository-directory>
-   ```
-
-2. Set up a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-   ```
-
-3. Install dependencies:
-   ```bash
-   pip install fastapi[all] sqlmodel psycopg2-binary bcrypt pyjwt
-   ```
-
-4. Set up PostgreSQL database and update connection settings in the code.
-
-## Usage
-1. Start the FastAPI server:
-   ```bash
-   uvicorn main:app --reload
-   ```
-
-2. Access the API documentation at `http://127.0.0.1:8000/docs`.
-
-## Endpoints
-- **User Registration:** `POST /register`
-- **User Login:** `POST /login`
-- **Get Projects:** `GET /projects`
-- **Create Project (admin only):** `POST /projects`
-
-## Video Demonstration
-[Link to video demonstrating setup and usage]
 
 ## Additional Configurations
 - Ensure PostgreSQL is running and accessible.
