@@ -3,7 +3,6 @@ from functools import lru_cache
 
 class Settings(BaseSettings):
     app_name: str = "JWT & RBAC"
-    admin_email: str
     database_url: str
     secret_key: str
     debug: bool = False

@@ -1,5 +1,5 @@
 from sqlmodel import SQLModel, Field
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 
 class UserBase(BaseModel):
     """
@@ -42,6 +42,10 @@ class Users(SQLModel, table=True):
     password: str
     role: str = Field(default="user")
 
+    @field_validator("role", mode="before")
+    @classmethod
+    def validate_role(cls, value: str) -> str:
+        return value if value.lower() == "admin" else "user"
 class ProjectBase(BaseModel):
     """
     Base model for project data.

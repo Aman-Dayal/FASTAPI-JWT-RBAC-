@@ -14,7 +14,7 @@ from api.common.settings import settings
 
 limiter = Limiter(
     key_func=lambda request: request.client.host,
-    default_limits=["5/minute"]
+    default_limits=["10/minute"]
 )
 
 app = FastAPI(
@@ -22,7 +22,6 @@ app = FastAPI(
     description="This is a FastAPI project with JWT authentication and Role-Based Access Control.",
     version="1.0.0",
     on_startup=[on_startup],
-    dependencies=[Depends(verify_api_key)]
 )
 
 app.add_middleware(SlowAPIMiddleware)
@@ -48,7 +47,7 @@ logger.info("Application started with title: %s", app.title)
 
 
 app.include_router(user_router.router,prefix="/api/auth", tags=["Authentication"])
-app.include_router(project_router.router, prefix="/api/projects", tags=["Projects"])
+app.include_router(project_router.router, prefix="/api/projects", tags=["Projects"],dependencies=[Depends(verify_api_key)])
 
 def custom_openapi():
     if app.openapi_schema:
